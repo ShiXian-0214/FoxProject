@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fb806ee6-45a6-4978-902d-a53945e6f2db}">
+		<property name="assetPath">
+			<value>Ambience/BG_Music/exploration_2A.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>14.404172335600906</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5d06693b-a935-4042-93d9-739ec9be8bd5}</destination>
+		</relationship>
+	</object>
+</objects>

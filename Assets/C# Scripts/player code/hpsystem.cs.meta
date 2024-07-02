@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 069bc102b5c709148a5f5398c09a9800
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - haifheart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
+  - fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
+  - emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
+  - Canvas: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

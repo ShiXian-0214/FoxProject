@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{29c8633b-7bdc-498c-a8c8-3b12b6ec61e0}">
+		<property name="assetPath">
+			<value>Footsteps - Essentials/Footsteps_Grass/Footsteps_Grass_Run.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5d06693b-a935-4042-93d9-739ec9be8bd5}</destination>
+		</relationship>
+	</object>
+</objects>
