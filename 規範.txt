@@ -1,0 +1,14 @@
+Public和function都用大駝峰命名
+Private小駝峰命名
+別用魔術數字
+盡量將Code封裝起來
+
+Commit訊息
+
+在要上傳東西時請在前面加標題
+例如我 Commit規範，docs:規範
+
+
+有新增內容使用 feat:
+修復東西或BUG用 fix:
+單純文件就用 docs:
