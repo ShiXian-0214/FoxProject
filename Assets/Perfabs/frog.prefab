@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793153914052494601}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.84, y: -0.7, z: 0}
+  m_LocalPosition: {x: 1.7, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8793153915152223293}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8793153914240422893
 GameObject:
@@ -54,13 +54,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793153914240422893}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.78, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8793153915152223293}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8793153915152223284
 GameObject:
@@ -76,9 +76,8 @@ GameObject:
   - component: {fileID: 8793153915152223282}
   - component: {fileID: 8793153915152223281}
   - component: {fileID: 1204145616}
-  - component: {fileID: 8793153915152223280}
   - component: {fileID: 8793153915152223287}
-  - component: {fileID: 8793153915152223286}
+  - component: {fileID: 4200988639369969446}
   - component: {fileID: 2269003480910384874}
   - component: {fileID: 1204145615}
   - component: {fileID: 1204145617}
@@ -99,6 +98,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793153915152223284}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.81, y: -0.31, z: 0}
   m_LocalScale: {x: 0.8563, y: 0.8729, z: 1}
@@ -107,7 +107,6 @@ Transform:
   - {fileID: 8793153914240422894}
   - {fileID: 8793153914052494602}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8793153915152223292
 SpriteRenderer:
@@ -181,6 +180,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &8793153915152223282
 Rigidbody2D:
   serializedVersion: 4
@@ -198,6 +198,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -212,6 +218,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -228,6 +253,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -244,33 +288,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4451234, y: 1.2044057}
   m_EdgeRadius: 0
---- !u!114 &8793153915152223280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8793153915152223284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aae997e082be4c41938b2c10533f3e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anime: {fileID: 8793153915152223283}
-  rb: {fileID: 8793153915152223282}
-  cd: {fileID: 8793153915152223281}
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
-  jumpforce: 5
-  Leftpoint: {fileID: 8793153914240422894}
-  Rightpoint: {fileID: 8793153914052494602}
-  leftx: 0
-  rightx: 0
-  face: 1
-  isjump: 0
-  isAttack: 0
-  isHurt: 0
 --- !u!114 &8793153915152223287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +300,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a029da18e34454b80d4fdae123b211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anima: {fileID: 8793153915152223283}
+  rigidbody2D: {fileID: 8793153915152223282}
+  leftPoint: {fileID: 8793153914240422894}
+  rightPoint: {fileID: 8793153914052494602}
+  leftX: 0
+  rightX: 0
+  face: 1
+  isAttack: 0
+  animationClip: {fileID: 7400000, guid: da8bb30b973a03642bfbdef60eb228e9, type: 2}
   speed: 1
---- !u!114 &8793153915152223286
+  circleCollider2D: {fileID: 8793153915152223281}
+  isJump: 0
+  jumpForce: 1
+  Ground:
+    serializedVersion: 2
+    m_Bits: 8
+  animaControl: {fileID: 4200988639369969446}
+--- !u!114 &4200988639369969446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,11 +326,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8793153915152223284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab77f072776a194b8023ea0eaddbecf, type: 3}
+  m_Script: {fileID: 11500000, guid: aa90b70a1cb755d4aa970f6dee941cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestAnimeTime: 2
-  RestAnimeCount: 2
+  animator: {fileID: 8793153915152223283}
+  rigidbody2D: {fileID: 8793153915152223282}
+  circleCollider2D: {fileID: 8793153915152223281}
+  Ground:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &2269003480910384874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +396,25 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -382,6 +438,7 @@ PolygonCollider2D:
       - {x: -1.7781126, y: -0.091574386}
       - {x: -1.5209633, y: 0.16436574}
       - {x: -1.9402025, y: 0.4465516}
+  m_UseDelaunayMesh: 0
 --- !u!114 &1204145626
 MonoBehaviour:
   m_ObjectHideFlags: 0

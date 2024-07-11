@@ -1,49 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class frogcon : MonoBehaviour
+public class frogcon : MonsterBaseValue
 {
-    private evemy_frog_value value;
-    [SerializeField] float speed;
-    
+    [Header("frogControlValue")]
+    [SerializeField] private float speed;
+    [SerializeField] private CircleCollider2D circleCollider2D;
+    [SerializeField] public bool isJump;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private LayerMask Ground;
+    [Header("frogAnimaControl")]
+    [SerializeField] private AnimaControl animaControl;
+
 
     void Awake()
     {
-        value = GetComponent<evemy_frog_value>();
-        Destroy(value.Leftpoint.gameObject);
-        Destroy(value.Rightpoint.gameObject);
+        init();
+        SetAnimationEventValue(0.4f, "Move");
+        AddAnimationEvent();
     }
 
-    // Update is called once per frame
-    void move()
+    protected override void Move()
     {
-        if (value.face)
+        if (face)
         {
-            if (transform.position.x > value.leftx && value.cd.IsTouchingLayers(value.Ground))
+            if (transform.position.x > leftX && circleCollider2D.IsTouchingLayers(Ground))
             {
-                value.isjump = true;
-                value.rb.velocity = new Vector2(-speed, value.jumpforce);
+                anima.SetBool("jumping", true);
+                rigidbody2D.velocity = new Vector2(-speed, jumpForce);
             }
-            if (transform.position.x < value.leftx)
+            if (transform.position.x < leftX)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
-                value.face = false;
+                face = false;
             }
         }
-        else 
+        else
         {
-            if (transform.position.x < value.rightx && value.cd.IsTouchingLayers(value.Ground)) 
+            if (transform.position.x < rightX && circleCollider2D.IsTouchingLayers(Ground))
             {
-                value.isjump = true;
-                value.rb.velocity = new Vector2(speed, value.jumpforce);
+                anima.SetBool("jumping", true);
+                rigidbody2D.velocity = new Vector2(speed, jumpForce);
             }
-            if (transform.position.x > value.rightx)
+            if (transform.position.x > rightX)
             {
                 transform.localScale = new Vector3(1, 1, 1);
-                value.face = true;
+                face = true;
             }
-
         }
     }
+
+
 }

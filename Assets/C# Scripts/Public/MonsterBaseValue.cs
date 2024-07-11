@@ -1,22 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterBaseValue : MonoBehaviour 
+public abstract class MonsterBaseValue : MonoBehaviour
 {
     [Header("BaseElement")]
-    [SerializeField]protected Animator anime;
-    [SerializeField]protected Rigidbody2D rb;
+    [SerializeField] protected Animator anima = null;
+    [SerializeField] protected Rigidbody2D rigidbody2D = null;
 
     [Header("CoordinateValue")]
-    [SerializeField]protected Transform Leftpoint;
-    [SerializeField]protected Transform Rightpoint;
-    [SerializeField]protected float leftx;
-    [SerializeField]protected float rightx;
+    [SerializeField] protected Transform leftPoint = null;
+    [SerializeField] protected Transform rightPoint = null;
+    [SerializeField] protected float leftX;
+    [SerializeField] protected float rightX;
     [Header("FaceDirection")]
-    [SerializeField]protected bool face = true;
+    [SerializeField] protected bool face = true;
     [Header("AnimaBool")]
-    [SerializeField]protected bool isAttack;
+    [SerializeField] protected bool isAttack;
+    [Header("AnimaEvent")]
+    [SerializeField] protected AnimationClip animationClip = null;
+    [SerializeField] protected AnimationEvent animationEvent = new AnimationEvent();
+    protected void init()
+    {
+        leftX = leftPoint.transform.position.x;
+        rightX = rightPoint.transform.position.x;
+        Destroy(leftPoint.gameObject);
+        Destroy(rightPoint.gameObject);
+    }
 
-    public virtual void Move(){}
+    protected abstract void Move();
+    protected void SetAnimationEventValue(float triggerTime , string functionName)
+    {
+        animationEvent.time = triggerTime;
+        animationEvent.functionName = functionName;
+    }
+    protected void AddAnimationEvent()
+    {
+        if (animationClip.events.Length==0)
+        {
+            animationClip.AddEvent(animationEvent);  
+        }
+        else
+        {
+            return;
+        }
+    }
+
+
 }
