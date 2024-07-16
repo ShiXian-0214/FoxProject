@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class frogcon : MonsterBaseValue
@@ -15,7 +16,7 @@ public class frogcon : MonsterBaseValue
     void Awake()
     {
         init();
-        SetAnimationEventValue(0.4f, "Move");
+        SetAnimationEventValue(0.5f, "Move");
         AddAnimationEvent();
     }
 

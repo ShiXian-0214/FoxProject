@@ -22,40 +22,46 @@ public class switchanimefrog : MonoBehaviour
         switchanimee();
         RestAnime();
     }
-   
+
     void switchanimee()
     {
         if (hpsystem.isHurt)
         {
             value.anime.SetBool("Hurt", true);
         }
-        else 
+        else
         {
             value.anime.SetBool("Hurt", false);
         }
+
         if (value.isAttack == true)
         {
             value.anime.SetBool("attack", true);
         }
-        else { value.anime.SetBool("attack", false); }
+        else
+        {
+            value.anime.SetBool("attack", false);
+        }
+
         if (value.isjump == true)
         {
             value.anime.SetBool("jumping", true);
-            
+
             if (value.rb.velocity.y < 0)
-             {
-                 value.isjump = false;
-                 value.anime.SetBool("jumping", false);
-                 value.anime.SetBool("falling", true);
-             }
+            {
+                value.isjump = false;
+                value.anime.SetBool("jumping", false);
+                value.anime.SetBool("falling", true);
+            }
         }
+        
         if (value.cd.IsTouchingLayers(value.Ground) && value.anime.GetBool("falling"))
         {
             value.anime.SetBool("falling", false);
         }
-        
+
     }
-    void RestAnime() 
+    void RestAnime()
     {
         if (!value.isjump)
         {
@@ -67,9 +73,5 @@ public class switchanimefrog : MonoBehaviour
                 RestAnimeTime = RestAnimeCount;
             }
         }
-        //else 
-        //{
-        //    RestAnimeTime = RestAnimeCount;
-        //}
     }
 }

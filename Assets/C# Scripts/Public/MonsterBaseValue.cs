@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class MonsterBaseValue : MonoBehaviour
 {
+    [Header("BaseValue")]
+    [SerializeField] protected float Damge;
+    [SerializeField] protected float HP;
     [Header("BaseElement")]
     [SerializeField] protected Animator anima = null;
     [SerializeField] protected Rigidbody2D rigidbody2D = null;
@@ -17,7 +20,7 @@ public abstract class MonsterBaseValue : MonoBehaviour
     [SerializeField] protected bool isAttack;
     [Header("AnimaEvent")]
     [SerializeField] protected AnimationClip animationClip = null;
-    [SerializeField] protected AnimationEvent animationEvent = new AnimationEvent();
+    protected AnimationEvent animationEvent = new AnimationEvent();
     protected void init()
     {
         leftX = leftPoint.transform.position.x;
@@ -27,7 +30,7 @@ public abstract class MonsterBaseValue : MonoBehaviour
     }
 
     protected abstract void Move();
-    protected void SetAnimationEventValue(float triggerTime , string functionName)
+    protected void SetAnimationEventValue(float triggerTime , string functionName)//
     {
         animationEvent.time = triggerTime;
         animationEvent.functionName = functionName;
