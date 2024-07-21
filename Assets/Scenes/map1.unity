@@ -33815,7 +33815,6 @@ MonoBehaviour:
   jumpforce: 10.5
   attackCount: 0
   isGround: 0
-  isJump: 0
   anima: {fileID: 2106893382}
 --- !u!58 &2106893374 stripped
 CircleCollider2D:
@@ -33839,8 +33838,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612b401c80bb97742aaed6403f9ec051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2106893377}
   rigidbody2D: {fileID: 2106893364}
+  circleCollider2D: {fileID: 2106893374}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  animator: {fileID: 2106893377}
+  animationClips:
+  - {fileID: 7400000, guid: f6ed0b818e07e3c4baefc504878cefc1, type: 2}
+  - {fileID: 7400000, guid: ec3e779614aa0ce4291cdc7e7fb015e1, type: 2}
+  animationEvents: []
 --- !u!1 &2108570280
 GameObject:
   m_ObjectHideFlags: 0
