@@ -13,7 +13,7 @@ public class Anima : MonoBehaviour
 
     public event Action FallingEndRestJumpCount;
 
-    private void Awake()
+    private void Start()
     {
         animaCallbackSet.SetAnimationEventValue(0, 0.0167f, () => CheckFall());
         animaCallbackSet.SetAnimationEventValue(1, 0.0167f, () => FallingEnd());
