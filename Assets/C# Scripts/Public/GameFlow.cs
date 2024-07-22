@@ -9,6 +9,7 @@ public class GameFloW : MonoBehaviour
     [SerializeField] private PlayerControl playerControl;
     private void Awake()
     {
+        keyboardSettings.Move += playerControl.Move;
         keyboardSettings.Jump += playerControl.Jump;
     }
     // Start is called before the first frame update
