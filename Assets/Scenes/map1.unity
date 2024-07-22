@@ -2393,6 +2393,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3994105462419012018, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2106893382}
+    - targetCorrespondingSourceObject: {fileID: 3994105462419012018, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106893389}
   m_SourcePrefab: {fileID: 100100000, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
 --- !u!1 &393190882 stripped
 GameObject:
@@ -33810,11 +33813,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  speed: 5
   jumpCount: 1
   jumpCountRest: 1
   jumpforce: 10.5
   attackCount: 0
-  isGround: 0
   anima: {fileID: 2106893382}
 --- !u!58 &2106893374 stripped
 CircleCollider2D:
@@ -33844,10 +33847,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 2106893377}
+  animaCallbackSet: {fileID: 2106893389}
+--- !u!114 &2106893389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393190882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce37609fc9df4a4ca07401d391b6f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   animationClips:
   - {fileID: 7400000, guid: f6ed0b818e07e3c4baefc504878cefc1, type: 2}
   - {fileID: 7400000, guid: ec3e779614aa0ce4291cdc7e7fb015e1, type: 2}
-  animationEvents: []
 --- !u!1 &2108570280
 GameObject:
   m_ObjectHideFlags: 0

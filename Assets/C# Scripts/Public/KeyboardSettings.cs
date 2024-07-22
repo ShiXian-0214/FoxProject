@@ -7,30 +7,37 @@ using UnityEngine;
 public class KeyboardSettings : MonoBehaviour
 {
     public event Action<bool> Jump;
-   
+    public event Action<float> Move;
+    void FixedUpdate()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            Move.Invoke(Input.GetAxisRaw("Horizontal"));
+        }
+        else
+        {
+            Move.Invoke(Input.GetAxisRaw("Horizontal"));
+        }
+    }
     void Update()
     {
         OnUpdate();
     }
     private void OnUpdate()
     {
-        float horizontalMove = Input.GetAxisRaw("Horizontal");
-        if(horizontalMove!=0)
-        {
-            
-        }
         if (Input.GetButtonDown("Jump"))
         {
             Jump.Invoke(true);
-        }
-        if (Input.GetButtonDown("Attack"))
-        {
-            //player.Attack();
         }
         if (Input.GetButtonDown("Crouch"))
         {
             //player.Crouch();
         }
+        if (Input.GetButtonDown("Attack"))
+        {
+            //player.Attack();
+        }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
 
