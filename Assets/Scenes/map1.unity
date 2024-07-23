@@ -197,6 +197,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42117144}
   m_CullTransparentMesh: 1
+--- !u!4 &43036710 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3994105461914109394, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+  m_PrefabInstance: {fileID: 393190881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &49848232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,11 +2349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.44
+      value: -16.08
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.69
+      value: -5.71
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29540,7 +29545,7 @@ Transform:
   m_GameObject: {fileID: 1511169959}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.44, y: -5.6899996, z: -10}
+  m_LocalPosition: {x: -16.08, y: -5.7099996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32766,7 +32771,7 @@ Transform:
   m_GameObject: {fileID: 1930786403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.44, y: -5.6899996, z: -10}
+  m_LocalPosition: {x: -16.08, y: -5.7099996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33808,8 +33813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be8d7c4aa0190644a07f40103d9a240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 2106893391}
   circleCollider2D: {fileID: 2106893374}
   rigidbody2D: {fileID: 2106893364}
+  crouchLayerCheck: {fileID: 43036710}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -33817,7 +33824,8 @@ MonoBehaviour:
   jumpCount: 1
   jumpCountRest: 1
   jumpforce: 10.5
-  attackCount: 0
+  attackCount: 1
+  attackRest: 1
   anima: {fileID: 2106893382}
 --- !u!58 &2106893374 stripped
 CircleCollider2D:
@@ -33863,6 +33871,12 @@ MonoBehaviour:
   animationClips:
   - {fileID: 7400000, guid: f6ed0b818e07e3c4baefc504878cefc1, type: 2}
   - {fileID: 7400000, guid: ec3e779614aa0ce4291cdc7e7fb015e1, type: 2}
+  - {fileID: 7400000, guid: f320551187960604e8df2642b773b24c, type: 2}
+--- !u!61 &2106893391 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3994105462419012005, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+  m_PrefabInstance: {fileID: 393190881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108570280
 GameObject:
   m_ObjectHideFlags: 0
