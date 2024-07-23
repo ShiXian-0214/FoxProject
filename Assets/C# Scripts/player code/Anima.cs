@@ -11,12 +11,15 @@ public class Anima : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AnimaCallbackSet animaCallbackSet;
 
-    public event Action FallingEndRestJumpCount;
+    public event Action FallingFinishRestJumpCount;
+    public event Action AttackFinishRestAttackCount;
 
     private void Start()
     {
-        animaCallbackSet.SetAnimationEventValue(0, 0.0167f, () => CheckFall());
-        animaCallbackSet.SetAnimationEventValue(1, 0.0167f, () => FallingEnd());
+        animaCallbackSet.SetAnimationEvent(0, 0.0167f, () => CheckFall());
+        animaCallbackSet.SetAnimationEvent(1, 0.0167f, () => FallingFinish());
+        animaCallbackSet.SetAnimationEvent(2, 0.167f, () => AttackFinish());
+
     }
     public void Move()
     {
@@ -30,22 +33,34 @@ public class Anima : MonoBehaviour
             animator.SetBool("jumping", true);
         }
     }
+    public void Crouch(bool crouchPressed)
+    {
+        animator.SetBool("Crouch", crouchPressed);
+    }
+    public void Attack()
+    {
+        animator.SetBool("Attack", true);
+    }
 
     private void CheckFall()
     {
-        animator.SetBool("falling", false);
         if (rigidbody2D.velocity.y < -0.1f)
         {
             animator.SetBool("jumping", false);
             animator.SetBool("falling", true);
         }
     }
-    private void FallingEnd()
+    private void FallingFinish()
     {
         if (circleCollider2D.IsTouchingLayers(layerMask))
         {
             animator.SetBool("falling", false);
-            FallingEndRestJumpCount.Invoke();
+            FallingFinishRestJumpCount.Invoke();
         }
+    }
+    private void AttackFinish()
+    {
+        animator.SetBool("Attack", false);
+        AttackFinishRestAttackCount.Invoke();
     }
 }

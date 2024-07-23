@@ -17,7 +17,7 @@ public class AnimaCallbackSet : MonoBehaviour
             }
         }
     }
-    public void SetAnimationEventValue(int ClipNumber, float triggerTime, Action function)//
+    public void SetAnimationEvent(int ClipNumber, float triggerTime, Action function)//
     {
         animationEvents[ClipNumber].time = triggerTime;
         animationEvents[ClipNumber].functionName = function.Method.Name;

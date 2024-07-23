@@ -8,6 +8,8 @@ public class KeyboardSettings : MonoBehaviour
 {
     public event Action<bool> Jump;
     public event Action<float> Move;
+    public event Action<bool> Crouch;
+    public event Action<bool> Attack;
     void FixedUpdate()
     {
         if (Input.GetAxisRaw("Horizontal") != 0)
@@ -29,15 +31,18 @@ public class KeyboardSettings : MonoBehaviour
         {
             Jump.Invoke(true);
         }
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButton("Crouch"))
         {
-            //player.Crouch();
+            Crouch.Invoke(true);
+        }
+        else
+        {
+            Crouch.Invoke(false);
         }
         if (Input.GetButtonDown("Attack"))
         {
-            //player.Attack();
+            Attack.Invoke(true);
         }
-        
         if (Input.GetKeyDown(KeyCode.E))
         {
 

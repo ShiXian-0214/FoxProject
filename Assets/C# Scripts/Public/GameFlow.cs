@@ -11,6 +11,8 @@ public class GameFloW : MonoBehaviour
     {
         keyboardSettings.Move += playerControl.Move;
         keyboardSettings.Jump += playerControl.Jump;
+        keyboardSettings.Crouch += playerControl.Crouch;
+        keyboardSettings.Attack+= playerControl.Attack;
     }
     // Start is called before the first frame update
     void Start()
