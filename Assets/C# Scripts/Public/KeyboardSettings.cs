@@ -9,16 +9,18 @@ public class KeyboardSettings : MonoBehaviour
     public event Action<bool> Jump;
     public event Action<float> Move;
     public event Action<bool> Crouch;
+    public event Action<bool> StairsUp;
     public event Action<bool> Attack;
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        float Horizontal = Input.GetAxisRaw("Horizontal");
+        if (Horizontal != 0)
         {
-            Move.Invoke(Input.GetAxisRaw("Horizontal"));
+            Move.Invoke(Horizontal);
         }
         else
         {
-            Move.Invoke(Input.GetAxisRaw("Horizontal"));
+            Move.Invoke(Horizontal);
         }
     }
     void Update()
@@ -27,21 +29,50 @@ public class KeyboardSettings : MonoBehaviour
     }
     private void OnUpdate()
     {
-        if (Input.GetButtonDown("Jump"))
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        bool jump = Input.GetButtonDown("Jump");
+        bool stairsUp = Input.GetButton("up");
+        bool crouch = Input.GetButton("Crouch");
+        bool attack = Input.GetButtonDown("Attack");
+
+        if (jump)
         {
-            Jump.Invoke(true);
+            if (!crouch)
+            {
+                Jump.Invoke(true);
+            }
         }
-        if (Input.GetButton("Crouch"))
+
+        if (crouch)
         {
-            Crouch.Invoke(true);
+            if (!jump)
+            {
+                Crouch.Invoke(true);
+            }
+            
         }
         else
         {
             Crouch.Invoke(false);
         }
-        if (Input.GetButtonDown("Attack"))
+
+        if(stairsUp)
         {
-            Attack.Invoke(true);
+            StairsUp.Invoke(true);
+        }
+        else
+        {
+            StairsUp.Invoke(false);
+        }
+        
+
+        if (attack)
+        {
+            if (horizontal == 0)
+            {
+                Attack.Invoke(true);
+            }
+
         }
         if (Input.GetKeyDown(KeyCode.E))
         {

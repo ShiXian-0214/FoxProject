@@ -11,7 +11,7 @@ public class Anima : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AnimaCallbackSet animaCallbackSet;
 
-    public event Action FallingFinishRestJumpCount;
+    public event Action RestJumpCount;
     public event Action AttackFinishRestAttackCount;
 
     private void Start()
@@ -28,18 +28,43 @@ public class Anima : MonoBehaviour
 
     public void Jump(bool Jump)
     {
-        if (Jump)
-        {
-            animator.SetBool("jumping", true);
-        }
+        animator.SetBool("jumping", Jump);
     }
     public void Crouch(bool crouchPressed)
     {
         animator.SetBool("Crouch", crouchPressed);
     }
+    public void StairsStop(bool stairsState)
+    {
+        RestValueAndAnimaState();
+        if (stairsState)
+        {
+            animator.SetBool("StairsStop", stairsState);
+        }
+        else
+        {
+            animator.SetBool("StairsStop", stairsState);
+        }
+    }
+    public void StairsMove(bool stairsState)
+    {
+        if(stairsState)
+        {
+            animator.SetBool("StairsMove",stairsState);
+        }
+        else
+        {
+             animator.SetBool("StairsMove",stairsState);
+        }
+    }
     public void Attack()
     {
         animator.SetBool("Attack", true);
+    }
+    private void RestValueAndAnimaState()
+    {
+        animator.Rebind();
+        RestJumpCount.Invoke();
     }
 
     private void CheckFall()
@@ -55,7 +80,7 @@ public class Anima : MonoBehaviour
         if (circleCollider2D.IsTouchingLayers(layerMask))
         {
             animator.SetBool("falling", false);
-            FallingFinishRestJumpCount.Invoke();
+            RestJumpCount.Invoke();
         }
     }
     private void AttackFinish()
