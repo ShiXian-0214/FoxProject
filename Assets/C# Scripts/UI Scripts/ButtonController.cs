@@ -35,7 +35,7 @@ public class ButtonController : MonoBehaviour
         RestSkill();
         textbox01.text = "As you enhance your vitality, your health pool experiences a significant boost. Leveling up your HP grants you increased resilience, allowing you to withstand more damage in the face of adversity. Hp + 1";
         game = GameObject.Find("Skill_Set _1");
-        //CherryValue¬O«ù¦³Äå®ç¼Æ¶q
+        //CherryValueï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶q
         if (ColliSionValue.CherryValue  >= 3)
         {
             CheckSkill = true;
@@ -193,8 +193,8 @@ public class ButtonController : MonoBehaviour
             if (CheckSkill == true)
             {
                 ColliSionValue.CherryValue = ColliSionValue.CherryValue - 3;
-                HPValue.hp = 5;/*¦å¶q*/
-                HPValue.numofhearts = 5;/*·í«e¦å¶q*/
+                HPValue.hp = 5;/*ï¿½ï¿½q*/
+                //HPValue.numofhearts = 5;/*ï¿½ï¿½ï¿½eï¿½ï¿½q*/
                 game.GetComponent<Button>().interactable = false;
                 level_one_done = true;
 
@@ -209,8 +209,8 @@ public class ButtonController : MonoBehaviour
             if (CheckSkill == true) 
             {
                 ColliSionValue.CherryValue = ColliSionValue.CherryValue - 3;
-                HPValue.hp = 7;/*¦å¶q*/
-                HPValue.numofhearts = 7;/*·í«e¦å¶q*/
+                HPValue.hp = 7;/*ï¿½ï¿½q*/
+                //HPValue.numofhearts = 7;/*ï¿½ï¿½ï¿½eï¿½ï¿½q*/
                 game.GetComponent<Button>().interactable = false;
                 textbox02.text = " ";
             }
@@ -223,7 +223,7 @@ public class ButtonController : MonoBehaviour
             if (CheckSkill == true)
             {
                 ColliSionValue.CherryValue = ColliSionValue.CherryValue - 3;
-                AttackValue.Dmage = 3;/*¶Ë®`­È*/
+                AttackValue.Dmage = 3;/*ï¿½Ë®`ï¿½ï¿½*/
                 game.GetComponent<Button>().interactable = false;
                 level_one_done = true;
 
@@ -238,7 +238,7 @@ public class ButtonController : MonoBehaviour
             if (CheckSkill == true)
             {
                 ColliSionValue.CherryValue = ColliSionValue.CherryValue - 3;
-                AttackValue.Dmage = 7;/*¶Ë®`­È*/
+                AttackValue.Dmage = 7;/*ï¿½Ë®`ï¿½ï¿½*/
                 game.GetComponent<Button>().interactable = false;
                 textbox02.text = " ";
             }
@@ -252,8 +252,8 @@ public class ButtonController : MonoBehaviour
             if (CheckSkill == true)
             {
                 ColliSionValue.CherryValue = ColliSionValue.CherryValue - 3;
-                basevalue.JumpCountRest = 2;/*¸õÅD¦¸¼Æªº­«»s*/
-                basevalue.JumpCount = 2; /*¸õÅD¦¸¼Æ*/
+                basevalue.JumpCountRest = 2;/*ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½Æªï¿½ï¿½ï¿½ï¿½s*/
+                basevalue.JumpCount = 2; /*ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½*/
                 game.GetComponent<Button>().interactable = false;
                 textbox02.text = " ";
             }

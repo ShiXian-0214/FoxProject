@@ -48,13 +48,13 @@ public class Anima : MonoBehaviour
     }
     public void StairsMove(bool stairsState)
     {
-        if(stairsState)
+        if (stairsState)
         {
-            animator.SetBool("StairsMove",stairsState);
+            animator.SetBool("StairsMove", stairsState);
         }
         else
         {
-             animator.SetBool("StairsMove",stairsState);
+            animator.SetBool("StairsMove", stairsState);
         }
     }
     public void Attack()
@@ -66,7 +66,7 @@ public class Anima : MonoBehaviour
         animator.Rebind();
         RestJumpCount.Invoke();
         RestAttackCount.Invoke();
-        
+
     }
 
     private void CheckFall()
