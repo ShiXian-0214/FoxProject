@@ -49,7 +49,6 @@ public class KeyboardSettings : MonoBehaviour
             {
                 Crouch.Invoke(true);
             }
-            
         }
         else
         {
@@ -65,15 +64,14 @@ public class KeyboardSettings : MonoBehaviour
             StairsUp.Invoke(false);
         }
         
-
         if (attack)
         {
             if (horizontal == 0)
             {
                 Attack.Invoke(true);
             }
-
         }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
 

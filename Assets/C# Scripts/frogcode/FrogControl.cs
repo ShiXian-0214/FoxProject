@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FrogControl : MonsterBaseValue
+public class frogcon : MonsterBaseValue
 {
     [Header("frogControlValue")]
     [SerializeField] private float speed;
