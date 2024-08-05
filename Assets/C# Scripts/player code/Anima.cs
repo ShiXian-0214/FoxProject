@@ -12,7 +12,7 @@ public class Anima : MonoBehaviour
     [SerializeField] private AnimaCallbackSet animaCallbackSet;
 
     public event Action RestJumpCount;
-    public event Action AttackFinishRestAttackCount;
+    public event Action RestAttackCount;
 
     private void Start()
     {
@@ -65,6 +65,8 @@ public class Anima : MonoBehaviour
     {
         animator.Rebind();
         RestJumpCount.Invoke();
+        RestAttackCount.Invoke();
+        
     }
 
     private void CheckFall()
@@ -86,6 +88,6 @@ public class Anima : MonoBehaviour
     private void AttackFinish()
     {
         animator.SetBool("Attack", false);
-        AttackFinishRestAttackCount.Invoke();
+        RestAttackCount.Invoke();
     }
 }

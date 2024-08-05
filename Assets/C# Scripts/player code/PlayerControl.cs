@@ -20,15 +20,15 @@ public class PlayerControl : MonoBehaviour, IPlayer
     [Header("attackValue")]
     [SerializeField] private int attackCount;
     [SerializeField] private int attackRest;
+    [SerializeField] private float damage = 1;
     [Header("Anima")]
     [SerializeField] private Anima anima;
-
     [SerializeField] private bool OnStairs;
 
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
-        anima.AttackFinishRestAttackCount += RestAttackCount;
+        anima.RestAttackCount += RestAttackCount;
     }
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
@@ -45,6 +45,9 @@ public class PlayerControl : MonoBehaviour, IPlayer
     {
         switch (collider2D.tag)
         {
+            case"Enemy":
+                collider2D.gameObject.GetComponent<HpSystem>()?.Attack(damage);
+                break;
             case "stairs":
                 OnStairs = false;
                 rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;

@@ -1272,6 +1272,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291326142}
   m_CullTransparentMesh: 1
+--- !u!1 &293061707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8793153915152223284, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+  m_PrefabInstance: {fileID: 732510608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &295604454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2288,6 +2293,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 110767470173605290, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: hp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 110767470173605290, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: HpMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 110767470173605290, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 110767470173605290, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: numofhearts
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 110767470173605290, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: imagehp.Array.data[0]
       value: 
       objectReference: {fileID: 368108193}
@@ -2331,6 +2352,14 @@ PrefabInstance:
       propertyPath: SceneMangerTransForm
       value: 
       objectReference: {fileID: 687669060}
+    - target: {fileID: 3994105462419012005, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994105462419012007, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3994105462419012018, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_Name
       value: player
@@ -2387,6 +2416,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7726969710712001635, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3994105462419012001, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
     m_RemovedGameObjects: []
@@ -2401,6 +2434,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3994105462419012018, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2106893389}
+    - targetCorrespondingSourceObject: {fileID: 3994105462419012018, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106893397}
   m_SourcePrefab: {fileID: 100100000, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
 --- !u!1 &393190882 stripped
 GameObject:
@@ -4301,7 +4337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboardSettings: {fileID: 687669062}
-  playerControl: {fileID: 2106893371}
+  Player: {fileID: 393190882}
 --- !u!1 &706143925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4599,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: invulnerbleDuration
       value: 1
       objectReference: {fileID: 0}
@@ -4641,7 +4681,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8793153915152223284, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920420591}
   m_SourcePrefab: {fileID: 100100000, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
 --- !u!1 &741172755
 GameObject:
@@ -6184,6 +6227,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8793153915152223293, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
   m_PrefabInstance: {fileID: 732510608}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &920420591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293061707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460376fb2df9714984d5a1250e13a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 3
+  maxHp: 3
+  hpUiImages:
+  - {fileID: 814279447}
+  - {fileID: 210147154}
+  - {fileID: 223790106}
+  fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
+  haifHeart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
+  invincibleTimeValue: 2
+  RestInvincibleTimeValue: 2
+  invincibleTime: 0
 --- !u!1 &920674795
 GameObject:
   m_ObjectHideFlags: 0
@@ -33791,7 +33858,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 393190881}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393190882}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf366b4615d9de74da5fa3b799162953, type: 3}
   m_Name: 
@@ -33823,10 +33890,12 @@ MonoBehaviour:
   speed: 5
   jumpCount: 1
   jumpCountRest: 1
-  jumpforce: 10.5
+  jumpForce: 10.5
   attackCount: 1
   attackRest: 1
+  damage: 1
   anima: {fileID: 2106893382}
+  OnStairs: 0
 --- !u!58 &2106893374 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3994105462419012002, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
@@ -33877,6 +33946,34 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3994105462419012005, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
   m_PrefabInstance: {fileID: 393190881}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106893397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393190882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460376fb2df9714984d5a1250e13a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 4
+  maxHp: 4
+  hpUiImages:
+  - {fileID: 368108193}
+  - {fileID: 1942169030}
+  - {fileID: 1853707770}
+  - {fileID: 1852096496}
+  - {fileID: 706143926}
+  - {fileID: 1641467457}
+  - {fileID: 517432476}
+  fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
+  haifHeart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
+  invincibleTimeValue: 0
+  RestInvincibleTimeValue: 0
+  invincibleTime: 0
 --- !u!1 &2108570280
 GameObject:
   m_ObjectHideFlags: 0

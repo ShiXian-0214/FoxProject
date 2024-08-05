@@ -6,14 +6,14 @@ using FMOD.Studio;
 
 public class PlayHPsystem : MonoBehaviour
 {
-    [Header("¥Í©R«Y¼Æ")]
+    [Header("ï¿½Í©Rï¿½Yï¿½ï¿½")]
     public Image[] imagehp;
     public Sprite haifheart;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    public float numofhearts;
+    public float HpMax;
     public float hp;
-    [Header("µL¼Ä«Y¼Æ")]
+    [Header("ï¿½Lï¿½Ä«Yï¿½ï¿½")]
     public float invulnerbleDuration;
     private float invulnerbleCounter;
     public bool invulnerble;
@@ -35,9 +35,9 @@ public class PlayHPsystem : MonoBehaviour
     }
     public void hpsystemcode()
     {
-        if (hp > numofhearts)
+        if (hp > HpMax)
         {
-            hp = numofhearts;
+            hp = HpMax;
         }
         for (int i = 0; i < imagehp.Length; i++)
         {
@@ -54,7 +54,7 @@ public class PlayHPsystem : MonoBehaviour
             {
                 imagehp[i].sprite = emptyHeart;
             }
-            if (i < numofhearts)
+            if (i < HpMax)
             {
                 imagehp[i].enabled = true;
             }
