@@ -10,7 +10,7 @@ public class GameFloW : MonoBehaviour
     [SerializeField] private IPlayer playerControl;
     private void Awake()
     {
-        playerControl = Player.GetComponent<PlayerControl>();
+        playerControl = Player.GetComponent<IPlayer>();
         keyboardSettings.Move += playerControl.Move;
         keyboardSettings.Jump += playerControl.Jump;
         keyboardSettings.Crouch += playerControl.CrouchAndStairsDown;

@@ -39,22 +39,22 @@ public class Anima : MonoBehaviour
         RestValueAndAnimaState();
         if (stairsState)
         {
-            animator.SetBool("StairsStop", stairsState);
+            animator.SetBool("StairsStop", true);
         }
         else
         {
-            animator.SetBool("StairsStop", stairsState);
+            animator.SetBool("StairsStop", false);
         }
     }
     public void StairsMove(bool stairsState)
     {
         if (stairsState)
         {
-            animator.SetBool("StairsMove", stairsState);
+            animator.SetBool("StairsMove", true);
         }
         else
         {
-            animator.SetBool("StairsMove", stairsState);
+            animator.SetBool("StairsMove", false);
         }
     }
     public void Attack()

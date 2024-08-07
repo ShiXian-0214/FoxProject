@@ -108,10 +108,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsstop
+    m_ConditionEvent: StairsStop
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4203006363602765423}
@@ -367,10 +367,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsstop
+    m_ConditionEvent: StairsStop
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -704830826839691451}
@@ -483,7 +483,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -704830826839691451}
@@ -556,13 +556,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Stairsmove
+  - m_Name: StairsMove
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Stairsstop
+  - m_Name: StairsStop
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -800,10 +800,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Stairsstop
+    m_ConditionEvent: StairsStop
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6885517212256961470}
@@ -828,10 +828,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Stairsstop
+    m_ConditionEvent: StairsStop
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6885517212256961470}
@@ -856,7 +856,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Stairsmove
+    m_ConditionEvent: StairsMove
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4203006363602765423}
