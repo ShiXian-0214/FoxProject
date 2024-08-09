@@ -4617,6 +4617,10 @@ PrefabInstance:
       propertyPath: Canvas
       value: 
       objectReference: {fileID: 1982085756}
+    - target: {fileID: 1082573313946366305, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: Canvas
       value: 
@@ -4729,7 +4733,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1204145626, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+    - {fileID: 1204145615, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -33935,7 +33941,8 @@ MonoBehaviour:
   attackRest: 1
   damage: 1
   anima: {fileID: 2106893382}
-  OnStairs: 0
+  isAttack: 0
+  onStairs: 0
 --- !u!58 &2106893374 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3994105462419012002, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
@@ -34013,8 +34020,8 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
   haifHeart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
   emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
-  invincibleTimeValue: 0
-  RestInvincibleTimeValue: 0
+  invincibleTimeValue: 2
+  RestInvincibleTimeValue: 2
   invincibleTime: 0
 --- !u!1 &2108570280
 GameObject:
