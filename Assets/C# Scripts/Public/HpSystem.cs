@@ -43,7 +43,11 @@ public class HpSystem : MonoBehaviour
             if (Hp <= 0)
             {
                 iHPSystem.Dead();
-                hpUi.enabled = false;
+                if (hpUi != null)
+                {
+                    hpUi.enabled = false;
+                }
+
             }
         }
         else
