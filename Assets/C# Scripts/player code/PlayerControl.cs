@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerControl : MonoBehaviour, IPlayer
+public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
 {
     [Header("Collider")]
     [SerializeField] private BoxCollider2D boxCollider2D;
@@ -23,8 +21,9 @@ public class PlayerControl : MonoBehaviour, IPlayer
     [SerializeField] private float damage = 1;
     [Header("Anima")]
     [SerializeField] private Anima anima;
-    [SerializeField] private bool OnStairs;
-
+    [Header("State")]
+    [SerializeField] private bool isAttack;
+    [SerializeField] private bool onStairs;
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
@@ -34,8 +33,14 @@ public class PlayerControl : MonoBehaviour, IPlayer
     {
         switch (collider2D.tag)
         {
+            case "Enemy":
+                if (isAttack)
+                {
+                    collider2D.gameObject.GetComponent<HpSystem>()?.Attack(damage);
+                }
+                break;
             case "stairs":
-                OnStairs = true;
+                onStairs = true;
                 rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
                 anima.StairsStop(true);
                 break;
@@ -45,11 +50,8 @@ public class PlayerControl : MonoBehaviour, IPlayer
     {
         switch (collider2D.tag)
         {
-            case"Enemy":
-                collider2D.gameObject.GetComponent<HpSystem>()?.Attack(damage);
-                break;
             case "stairs":
-                OnStairs = false;
+                onStairs = false;
                 rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
                 anima.StairsStop(false);
                 anima.StairsMove(false);
@@ -67,7 +69,7 @@ public class PlayerControl : MonoBehaviour, IPlayer
     }
     public void Jump(bool jumpPressed)
     {
-        if (jumpPressed&&!OnStairs)
+        if (jumpPressed && !onStairs)
         {
             if (jumpCount > 0)
             {
@@ -80,18 +82,18 @@ public class PlayerControl : MonoBehaviour, IPlayer
     public void CrouchAndStairsDown(bool crouchPressed)
     {
         bool checkGroundInUp = Physics2D.OverlapCircle(crouchLayerCheck.position, 0.02f, layerMask);
-        if (crouchPressed && !OnStairs)
+        if (crouchPressed && !onStairs)
         {
             anima.Crouch(true);
             boxCollider2D.enabled = false;
         }
-        else if (crouchPressed && OnStairs)
+        else if (crouchPressed && onStairs)
         {
             rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -speed);
             anima.StairsMove(true);
         }
-        else if (!crouchPressed && OnStairs)
+        else if (!crouchPressed && onStairs)
         {
             rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             anima.StairsMove(false);
@@ -111,7 +113,7 @@ public class PlayerControl : MonoBehaviour, IPlayer
     }
     public void StairsUp(bool StairsUpPressed)
     {
-        if (StairsUpPressed && OnStairs)
+        if (StairsUpPressed && onStairs)
         {
             rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speed);
@@ -124,11 +126,16 @@ public class PlayerControl : MonoBehaviour, IPlayer
         {
             if (attackCount > 0)
             {
+                isAttack = true;
                 anima.Attack();
                 attackCount--;
             }
         }
-
+    }
+    public void Dead()
+    {
+        //SceneManager.LoadScene("Dead Scene");
+        //AudioManager.instance.PlayOneShot(FModEvents.instance.deadEvent, this.transform.position);
     }
 
     private void RestJumpCount()
@@ -138,6 +145,7 @@ public class PlayerControl : MonoBehaviour, IPlayer
     private void RestAttackCount()
     {
         attackCount = attackRest;
+        isAttack = false;
     }
 
 

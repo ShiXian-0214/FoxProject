@@ -8,6 +8,8 @@ public class HpSystem : MonoBehaviour
 {
     [SerializeField] private float Hp;
     [SerializeField] private float maxHp;
+    [SerializeField] private GameObject currentGameObject;
+    [SerializeField] private Canvas hpUi = null;
     [SerializeField] private Image[] hpUiImages;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite haifHeart;
@@ -15,8 +17,11 @@ public class HpSystem : MonoBehaviour
     [SerializeField] private float invincibleTimeValue;
     [SerializeField] private float RestInvincibleTimeValue;
     [SerializeField] private bool invincibleTime;
+
+    private IHpSystem iHPSystem;
     private void Awake()
     {
+        iHPSystem = currentGameObject.GetComponent<IHpSystem>();
         HpUi();
     }
     private void Update()
@@ -31,9 +36,15 @@ public class HpSystem : MonoBehaviour
     {
         if (!invincibleTime)
         {
-            invincibleTime=true;
+            OpenHpUI();
+            invincibleTime = true;
             Hp -= Damage;
             HpUi();
+            if (Hp <= 0)
+            {
+                iHPSystem.Dead();
+                hpUi.enabled = false;
+            }
         }
         else
         {
@@ -72,9 +83,26 @@ public class HpSystem : MonoBehaviour
             }
         }
     }
+    private void OpenHpUI()
+    {
+        if (hpUi != null)
+        {
+            hpUi.enabled = true;
+            StartCoroutine(CloseHpUI());
+        }
+    }
+    private IEnumerator CloseHpUI()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (hpUi != null)
+        {
+            hpUi.enabled = false;
+        }
+
+    }
     private void CalculateInvincibleTime()
     {
-        if(invincibleTimeValue<=0)
+        if (invincibleTimeValue <= 0)
         {
             invincibleTime = false;
             invincibleTimeValue = RestInvincibleTimeValue;
