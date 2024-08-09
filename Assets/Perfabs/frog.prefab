@@ -76,14 +76,14 @@ GameObject:
   - component: {fileID: 8793153915152223282}
   - component: {fileID: 8793153915152223281}
   - component: {fileID: 1204145616}
-  - component: {fileID: 8793153915152223287}
   - component: {fileID: 4200988639369969446}
-  - component: {fileID: 2269003480910384874}
+  - component: {fileID: 7794897226005988469}
   - component: {fileID: 1204145615}
-  - component: {fileID: 1204145617}
   - component: {fileID: 1204145627}
   - component: {fileID: 1204145626}
   - component: {fileID: 1360561219}
+  - component: {fileID: 1082573313946366305}
+  - component: {fileID: 3903116295306350054}
   m_Layer: 0
   m_Name: frog
   m_TagString: Enemy
@@ -288,35 +288,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4451234, y: 1.2044057}
   m_EdgeRadius: 0
---- !u!114 &8793153915152223287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8793153915152223284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a029da18e34454b80d4fdae123b211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anima: {fileID: 8793153915152223283}
-  rigidbody2D: {fileID: 8793153915152223282}
-  leftPoint: {fileID: 8793153914240422894}
-  rightPoint: {fileID: 8793153914052494602}
-  leftX: 0
-  rightX: 0
-  face: 1
-  isAttack: 0
-  animationClip: {fileID: 7400000, guid: da8bb30b973a03642bfbdef60eb228e9, type: 2}
-  speed: 1
-  circleCollider2D: {fileID: 8793153915152223281}
-  isJump: 0
-  jumpForce: 1
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
-  animaControl: {fileID: 4200988639369969446}
 --- !u!114 &4200988639369969446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,12 +301,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8793153915152223283}
-  rigidbody2D: {fileID: 8793153915152223282}
+  rigidBody2D: {fileID: 8793153915152223282}
   circleCollider2D: {fileID: 8793153915152223281}
   Ground:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &2269003480910384874
+  animaCallbackSet: {fileID: 7794897226005988469}
+--- !u!114 &7794897226005988469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,22 +316,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8793153915152223284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 069bc102b5c709148a5f5398c09a9800, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ce37609fc9df4a4ca07401d391b6f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagehp:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  haifheart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
-  fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
-  numofhearts: 3
-  hp: 3
-  invulnerbleDuration: 1
-  invulnerble: 0
-  Canvas: {fileID: 0}
-  isHurt: 0
+  animationClips:
+  - {fileID: 7400000, guid: da8bb30b973a03642bfbdef60eb228e9, type: 2}
+  - {fileID: 7400000, guid: 8b754db70420ebf4b8b7a85d5e0d469a, type: 2}
+  - {fileID: 7400000, guid: 22ef6f642da057545b9a7714642183aa, type: 2}
+  - {fileID: 7400000, guid: aee0b9b5967e9a04e8a2a1a9a5e18676, type: 2}
 --- !u!114 &1204145615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,19 +337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damge: 1
---- !u!114 &1204145617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8793153915152223284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 380574459d39eb342838bc0bb314494e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Canvas: {fileID: 0}
 --- !u!60 &1204145627
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -482,3 +433,60 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 10
+--- !u!114 &1082573313946366305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793153915152223284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8701cad3c3849042a242eff4501f59d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damge: 0
+  HP: 0
+  rigidbody2D: {fileID: 8793153915152223282}
+  leftPoint: {fileID: 8793153914240422894}
+  rightPoint: {fileID: 8793153914052494602}
+  leftX: 0
+  rightX: 0
+  face: 1
+  isAttack: 0
+  animationClip: {fileID: 7400000, guid: da8bb30b973a03642bfbdef60eb228e9, type: 2}
+  speed: 1
+  circleCollider2D: {fileID: 8793153915152223281}
+  isJump: 0
+  jumpForce: 1
+  Ground:
+    serializedVersion: 2
+    m_Bits: 8
+  animaControl: {fileID: 4200988639369969446}
+  animaCallbackSet: {fileID: 7794897226005988469}
+--- !u!114 &3903116295306350054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793153915152223284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f460376fb2df9714984d5a1250e13a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 3
+  maxHp: 3
+  currentGameObject: {fileID: 8793153915152223284}
+  hpUi: {fileID: 0}
+  hpUiImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: 850dc9fabd2cd974e8a97435162dcfa7, type: 3}
+  haifHeart: {fileID: 21300000, guid: 5607d4afb3b28014ab3e0250a455dcca, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 9002fac55db40164ea5a5b489514abc5, type: 3}
+  invincibleTimeValue: 2
+  RestInvincibleTimeValue: 2
+  invincibleTime: 0

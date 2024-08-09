@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class frogcon : MonsterBaseValue
+public class FrogControl : MonsterBaseValue
 {
     [Header("frogControlValue")]
     [SerializeField] private float speed;
@@ -11,22 +11,43 @@ public class frogcon : MonsterBaseValue
     [SerializeField] private LayerMask Ground;
     [Header("frogAnimaControl")]
     [SerializeField] private AnimaControl animaControl;
+    [SerializeField] private AnimaCallbackSet animaCallbackSet;
+    private static bool StaticState = true;
 
-
-    void Awake()
+    private void Awake()
     {
         init();
-        SetAnimationEventValue(0.5f, "Move");
-        AddAnimationEvent();
     }
-
+    private void Start()
+    {
+        if(StaticState)
+        {
+            animaCallbackSet.SetAnimationEvent(0, 0.5f, Move);
+            StaticState=false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag == "Player") 
+        {
+            collider2D.GetComponent<HpSystem>()?.Attack(damage);
+            animaControl.Attack(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag == "Player") 
+        {
+            animaControl.Attack(false);
+        }
+    }
     protected override void Move()
     {
         if (face)
         {
             if (transform.position.x > leftX && circleCollider2D.IsTouchingLayers(Ground))
             {
-                anima.SetBool("jumping", true);
+                animaControl.Jump(true);
                 rigidbody2D.velocity = new Vector2(-speed, jumpForce);
             }
             if (transform.position.x < leftX)
@@ -39,7 +60,7 @@ public class frogcon : MonsterBaseValue
         {
             if (transform.position.x < rightX && circleCollider2D.IsTouchingLayers(Ground))
             {
-                anima.SetBool("jumping", true);
+                animaControl.Jump(true);
                 rigidbody2D.velocity = new Vector2(speed, jumpForce);
             }
             if (transform.position.x > rightX)
@@ -48,6 +69,10 @@ public class frogcon : MonsterBaseValue
                 face = true;
             }
         }
+    }
+    public override void Dead()
+    {
+        animaControl.Dead();
     }
 
 

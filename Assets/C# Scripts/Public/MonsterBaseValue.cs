@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public abstract class MonsterBaseValue : MonoBehaviour
+public abstract class MonsterBaseValue : MonoBehaviour,IHpSystem
 {
     [Header("BaseValue")]
-    [SerializeField] protected float Damge;
-    [SerializeField] protected float HP;
+    [SerializeField] protected float damage;
     [Header("BaseElement")]
-    [SerializeField] protected Animator anima = null;
     [SerializeField] protected Rigidbody2D rigidbody2D = null;
 
     [Header("CoordinateValue")]
@@ -28,8 +26,15 @@ public abstract class MonsterBaseValue : MonoBehaviour
         Destroy(leftPoint.gameObject);
         Destroy(rightPoint.gameObject);
     }
-
     protected abstract void Move();
+    public abstract void Dead();
+    private void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.tag == "Player")
+        {
+            collision2D.gameObject.GetComponent<HpSystem>()?.Attack(damage);
+        }
+    }
     protected void SetAnimationEventValue(float triggerTime , string functionName)//
     {
         animationEvent.time = triggerTime;

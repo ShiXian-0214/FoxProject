@@ -21,7 +21,7 @@ public class AnimaCallbackSet : MonoBehaviour
     {
         animationEvents[ClipNumber].time = triggerTime;
         animationEvents[ClipNumber].functionName = function.Method.Name;
-        AddEvent(ClipNumber); 
+        AddEvent(ClipNumber);
     }
     private void AddEvent(int ClipNumber)
     {
