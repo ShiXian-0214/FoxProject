@@ -28,6 +28,7 @@ public abstract class MonsterBaseValue : MonoBehaviour,IHpSystem
     }
     protected abstract void Move();
     public abstract void Dead();
+    public abstract void Hurt(bool State);
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         if (collision2D.gameObject.tag == "Player")

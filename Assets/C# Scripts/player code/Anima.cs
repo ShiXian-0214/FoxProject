@@ -61,9 +61,24 @@ public class Anima : MonoBehaviour
     {
         animator.SetBool("Attack", true);
     }
+
+    public void Hurt(bool State)
+    {
+        if(State)
+        {
+            RestValueAndAnimaState();
+            animator.SetBool("hurt",true);
+        }
+        else
+        {
+            animator.SetBool("hurt",false);
+        }
+    }
     private void RestValueAndAnimaState()
     {
-        animator.Rebind();
+        animator.SetBool("jumping", false);
+        animator.SetBool("Crouch", false);
+        animator.SetBool("Attack", false);
         RestJumpCount.Invoke();
         RestAttackCount.Invoke();
 

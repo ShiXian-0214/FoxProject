@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     [Header("Collider")]
     [SerializeField] private BoxCollider2D boxCollider2D;
     [SerializeField] private CircleCollider2D circleCollider2D;
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private Rigidbody2D rigidBody2D;
     [SerializeField] private Transform crouchLayerCheck;
     [SerializeField] private LayerMask layerMask;
     [Header("MoveValue")]
@@ -24,10 +25,28 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     [Header("State")]
     [SerializeField] private bool isAttack;
     [SerializeField] private bool onStairs;
+    private bool injuredStiff;
+    private bool monsterDirection; // right = true，Left = false
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
         anima.RestAttackCount += RestAttackCount;
+    }
+    private void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        switch (collision2D.gameObject.tag)
+        {
+            case "Enemy":
+                if(collision2D.gameObject.transform.position.x>this.gameObject.transform.position.x)
+                {
+                    monsterDirection = true;
+                }
+                else
+                {
+                    monsterDirection = false;
+                }
+                break;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
@@ -41,7 +60,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 break;
             case "stairs":
                 onStairs = true;
-                rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+                rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(true);
                 break;
         }
@@ -52,7 +71,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         {
             case "stairs":
                 onStairs = false;
-                rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(false);
                 anima.StairsMove(false);
                 break;
@@ -60,11 +79,25 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     }
     public void Move(float movePressed)
     {
-        anima.Move();
-        rigidbody2D.velocity = new Vector2(movePressed * speed, rigidbody2D.velocity.y);
-        if (movePressed != 0)
+        if (injuredStiff)
         {
-            transform.localScale = new Vector3(movePressed, 1, 1);
+            if(monsterDirection)
+            {
+                rigidBody2D.velocity = new Vector2(-speed, rigidBody2D.velocity.y);
+            }
+            else
+            {
+                rigidBody2D.velocity = new Vector2(speed, rigidBody2D.velocity.y);
+            }
+        }
+        else
+        {
+            anima.Move();
+            rigidBody2D.velocity = new Vector2(movePressed * speed, rigidBody2D.velocity.y);
+            if (movePressed != 0)
+            {
+                transform.localScale = new Vector3(movePressed, 1, 1);
+            }
         }
     }
     public void Jump(bool jumpPressed)
@@ -74,7 +107,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
             if (jumpCount > 0)
             {
                 anima.Jump(jumpPressed);
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpForce);
+                rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
                 jumpCount--;
             }
         }
@@ -89,13 +122,13 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         }
         else if (crouchPressed && onStairs)
         {
-            rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -speed);
+            rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
+            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, -speed);
             anima.StairsMove(true);
         }
         else if (!crouchPressed && onStairs)
         {
-            rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             anima.StairsMove(false);
         }
         else
@@ -115,14 +148,14 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     {
         if (StairsUpPressed && onStairs)
         {
-            rigidbody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speed);
+            rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, speed);
             anima.StairsMove(true);
         }
     }
     public void Attack(bool attackPressed)
     {
-        if (attackPressed)
+        if (attackPressed&&!onStairs)
         {
             if (attackCount > 0)
             {
@@ -130,6 +163,20 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 anima.Attack();
                 attackCount--;
             }
+        }
+    }
+
+    public void Hurt(bool State)
+    {
+        if (State)
+        {
+            injuredStiff = true;
+            anima.Hurt(true);
+        }
+        else
+        {
+            injuredStiff = false;
+            anima.Hurt(false);
         }
     }
     public void Dead()

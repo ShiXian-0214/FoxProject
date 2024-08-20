@@ -70,6 +70,10 @@ public class FrogControl : MonsterBaseValue
             }
         }
     }
+    public override void Hurt(bool State)
+    {
+        
+    }
     public override void Dead()
     {
         animaControl.Dead();

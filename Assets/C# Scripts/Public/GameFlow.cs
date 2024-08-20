@@ -15,6 +15,6 @@ public class GameFloW : MonoBehaviour
         keyboardSettings.Jump += playerControl.Jump;
         keyboardSettings.Crouch += playerControl.CrouchAndStairsDown;
         keyboardSettings.Attack += playerControl.Attack;
-        keyboardSettings.StairsUp+=playerControl.StairsUp;
+        keyboardSettings.StairsUp += playerControl.StairsUp;
     }
 }

@@ -109,10 +109,12 @@ public class HpSystem : MonoBehaviour
         if (invincibleTimeValue <= 0)
         {
             invincibleTime = false;
+            iHPSystem.Hurt(false);
             invincibleTimeValue = RestInvincibleTimeValue;
         }
         if (invincibleTime)
         {
+            iHPSystem.Hurt(true);
             invincibleTimeValue -= Time.deltaTime;
         }
 

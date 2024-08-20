@@ -6,5 +6,5 @@ public interface IPlayer
     public void StairsUp(bool StairsUpPressed);
     public void CrouchAndStairsDown(bool crouchPressed);
     public void Attack(bool attackPressed);
-    
+
 }

@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IHpSystem
 {
+    public void Hurt(bool HurtState);
     public void Dead();
 }

@@ -2349,7 +2349,7 @@ PrefabInstance:
       objectReference: {fileID: 687669060}
     - target: {fileID: 3994105462419012005, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3994105462419012007, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_Constraints
@@ -2373,11 +2373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.28
+      value: 27.32
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.54
+      value: 6.44
       objectReference: {fileID: 0}
     - target: {fileID: 3994105463687738233, guid: 232eae97a07cbd4499e96a23fbe26083, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29658,7 +29658,7 @@ Transform:
   m_GameObject: {fileID: 1511169959}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.28, y: 6.5400004, z: -10}
+  m_LocalPosition: {x: 27.32, y: 6.4400005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32884,7 +32884,7 @@ Transform:
   m_GameObject: {fileID: 1930786403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.28, y: 6.5400004, z: -10}
+  m_LocalPosition: {x: 27.32, y: 6.4400005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33928,7 +33928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider2D: {fileID: 2106893391}
   circleCollider2D: {fileID: 2106893374}
-  rigidbody2D: {fileID: 2106893364}
+  rigidBody2D: {fileID: 2106893364}
   crouchLayerCheck: {fileID: 43036710}
   layerMask:
     serializedVersion: 2
