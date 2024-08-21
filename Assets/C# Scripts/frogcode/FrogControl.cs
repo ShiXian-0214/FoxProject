@@ -4,14 +4,14 @@ using UnityEngine;
 public class FrogControl : MonsterBaseValue
 {
     [Header("frogControlValue")]
-    [SerializeField] private float speed;
+
     [SerializeField] private CircleCollider2D circleCollider2D;
     [SerializeField] public bool isJump;
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask Ground;
     [Header("frogAnimaControl")]
-    [SerializeField] private AnimaControl animaControl;
     [SerializeField] private AnimaCallbackSet animaCallbackSet;
+    [SerializeField] protected AnimaControl animaControl;
     private static bool StaticState = true;
 
     private void Awake()
@@ -20,25 +20,10 @@ public class FrogControl : MonsterBaseValue
     }
     private void Start()
     {
-        if(StaticState)
+        if (StaticState)
         {
             animaCallbackSet.SetAnimationEvent(0, 0.5f, Move);
-            StaticState=false;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.gameObject.tag == "Player") 
-        {
-            collider2D.GetComponent<HpSystem>()?.Attack(damage);
-            animaControl.Attack(true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collider2D)
-    {
-        if (collider2D.gameObject.tag == "Player") 
-        {
-            animaControl.Attack(false);
+            StaticState = false;
         }
     }
     protected override void Move()
@@ -72,7 +57,7 @@ public class FrogControl : MonsterBaseValue
     }
     public override void Hurt(bool State)
     {
-        
+
     }
     public override void Dead()
     {

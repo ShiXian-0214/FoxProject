@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         switch (collision2D.gameObject.tag)
         {
             case "Enemy":
-                if(collision2D.gameObject.transform.position.x>this.gameObject.transform.position.x)
+                if (collision2D.gameObject.transform.position.x > this.gameObject.transform.position.x)
                 {
                     monsterDirection = true;
                 }
@@ -60,7 +60,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 break;
             case "stairs":
                 onStairs = true;
-                rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
+                rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(true);
                 break;
         }
@@ -71,7 +71,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         {
             case "stairs":
                 onStairs = false;
-                rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
+                rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(false);
                 anima.StairsMove(false);
                 break;
@@ -81,7 +81,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     {
         if (injuredStiff)
         {
-            if(monsterDirection)
+            if (monsterDirection)
             {
                 rigidBody2D.velocity = new Vector2(-speed, rigidBody2D.velocity.y);
             }
@@ -104,7 +104,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     {
         if (jumpPressed && !onStairs)
         {
-            if (jumpCount > 0)
+            if (jumpCount > 0 && !injuredStiff)
             {
                 anima.Jump(jumpPressed);
                 rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
@@ -122,7 +122,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         }
         else if (crouchPressed && onStairs)
         {
-            rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY| RigidbodyConstraints2D.FreezeRotation;
+            rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, -speed);
             anima.StairsMove(true);
         }
@@ -155,7 +155,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     }
     public void Attack(bool attackPressed)
     {
-        if (attackPressed&&!onStairs)
+        if (attackPressed && !onStairs)
         {
             if (attackCount > 0)
             {

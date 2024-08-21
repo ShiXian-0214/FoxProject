@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimaControl : MonoBehaviour
+public class AnimaControl : MonoBehaviour,IAnimaControl
 {
     [SerializeField] Animator animator = null;
     [SerializeField] Rigidbody2D rigidBody2D = null;

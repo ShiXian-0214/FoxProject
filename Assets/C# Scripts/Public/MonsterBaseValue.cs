@@ -1,11 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class MonsterBaseValue : MonoBehaviour,IHpSystem
 {
     [Header("BaseValue")]
     [SerializeField] protected float damage;
+    [SerializeField] protected float speed;
     [Header("BaseElement")]
     [SerializeField] protected Rigidbody2D rigidbody2D = null;
+
+    [SerializeField] private IAnimaControl animaControl;
 
     [Header("CoordinateValue")]
     [SerializeField] protected Transform leftPoint = null;
@@ -14,13 +18,10 @@ public abstract class MonsterBaseValue : MonoBehaviour,IHpSystem
     [SerializeField] protected float rightX;
     [Header("FaceDirection")]
     [SerializeField] protected bool face = true;
-    [Header("AnimaBool")]
-    [SerializeField] protected bool isAttack;
-    [Header("AnimaEvent")]
-    [SerializeField] protected AnimationClip animationClip = null;
-    protected AnimationEvent animationEvent = new AnimationEvent();
+
     protected void init()
     {
+        animaControl = this.GetComponent<IAnimaControl>();
         leftX = leftPoint.transform.position.x;
         rightX = rightPoint.transform.position.x;
         Destroy(leftPoint.gameObject);
@@ -36,22 +37,21 @@ public abstract class MonsterBaseValue : MonoBehaviour,IHpSystem
             collision2D.gameObject.GetComponent<HpSystem>()?.Attack(damage);
         }
     }
-    protected void SetAnimationEventValue(float triggerTime , string functionName)//
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        animationEvent.time = triggerTime;
-        animationEvent.functionName = functionName;
-    }
-    protected void AddAnimationEvent()
-    {
-        if (animationClip.events.Length==0)
+        if (collider2D.gameObject.tag == "Player") 
         {
-            animationClip.AddEvent(animationEvent);  
-        }
-        else
-        {
-            return;
+            animaControl.Attack(true);
         }
     }
+    private void OnTriggerExit2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag == "Player") 
+        {
+            animaControl.Attack(false);
+        }
+    }
+
 
 
 }
