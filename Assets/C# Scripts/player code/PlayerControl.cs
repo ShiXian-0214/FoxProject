@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     [Header("State")]
     [SerializeField] private bool isAttack;
     [SerializeField] private bool onStairs;
+    public bool SwitchMap { get; set; }
     private bool injuredStiff;
     private bool monsterDirection; // right = true，Left = false
     private void Awake()
@@ -63,6 +64,9 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(true);
                 break;
+            case "door":
+                SwitchMap = true;
+                break;
         }
     }
     private void OnTriggerExit2D(Collider2D collider2D)
@@ -74,6 +78,9 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 rigidBody2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 anima.StairsStop(false);
                 anima.StairsMove(false);
+                break;
+            case "door":
+                SwitchMap = false;
                 break;
         }
     }

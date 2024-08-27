@@ -1,6 +1,7 @@
 
 public interface IPlayer
 {
+    public bool SwitchMap { get; set; }
     public void Move(float movePressed);
     public void Jump(bool jumpPressed);
     public void StairsUp(bool StairsUpPressed);

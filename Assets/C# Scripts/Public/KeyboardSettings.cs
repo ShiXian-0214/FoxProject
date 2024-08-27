@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyboardSettings : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class KeyboardSettings : MonoBehaviour
     public event Action<bool> Crouch;
     public event Action<bool> StairsUp;
     public event Action<bool> Attack;
+    public event Action SwitchMap;
     private void FixedUpdate()
     {
         float Horizontal = Input.GetAxisRaw("Horizontal");
@@ -74,7 +76,7 @@ public class KeyboardSettings : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            SwitchMap.Invoke();
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {

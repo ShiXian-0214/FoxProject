@@ -195,6 +195,22 @@ PrefabInstance:
       propertyPath: imagehp.Array.data[2]
       value: 
       objectReference: {fileID: 695225814}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 473889534}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 815658173}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 760518910}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 695225814}
     - target: {fileID: 8793153915152223284, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: m_Name
       value: frog4
@@ -786,6 +802,22 @@ PrefabInstance:
       objectReference: {fileID: 494664471}
     - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: imagehp.Array.data[2]
+      value: 
+      objectReference: {fileID: 866797157}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 146761020}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 623899541}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 494664471}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
       value: 
       objectReference: {fileID: 866797157}
     - target: {fileID: 8793153914052494601, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
@@ -1799,6 +1831,22 @@ PrefabInstance:
       propertyPath: imagehp.Array.data[0]
       value: 
       objectReference: {fileID: 224955729}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 2118862630}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 224955729}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 367076254}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 1576749567}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3757,6 +3805,22 @@ PrefabInstance:
       objectReference: {fileID: 2085261273}
     - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: imagehp.Array.data[2]
+      value: 
+      objectReference: {fileID: 1752521910}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 603694628}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1420365209}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 2085261273}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
       value: 
       objectReference: {fileID: 1752521910}
     - target: {fileID: 8793153915152223284, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
@@ -14836,6 +14900,22 @@ PrefabInstance:
       objectReference: {fileID: 505630824}
     - target: {fileID: 2269003480910384874, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: imagehp.Array.data[2]
+      value: 
+      objectReference: {fileID: 844618566}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 636563417}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1816018258}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 505630824}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
       value: 
       objectReference: {fileID: 844618566}
     - target: {fileID: 8793153914052494602, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
@@ -30009,6 +30089,22 @@ PrefabInstance:
       propertyPath: imagehp.Array.data[2]
       value: 
       objectReference: {fileID: 923470406}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 183774110}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1643570294}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 1041360675}
+    - target: {fileID: 3903116295306350054, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 923470406}
     - target: {fileID: 8793153914052494601, guid: 7441a15a2ff7f9d40beff44e7d4610e3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -30285,7 +30381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2006708328}
   m_Layer: 0
-  m_Name: system
+  m_Name: rebirth
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -30709,6 +30805,22 @@ PrefabInstance:
       propertyPath: imagehp.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUi
+      value: 
+      objectReference: {fileID: 134526773}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 743610320}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 1696165081}
+    - target: {fileID: 3568180191599875722, guid: 938a165261b39cb4e8f00f466944c0df, type: 3}
+      propertyPath: hpUiImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 2046320057}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
