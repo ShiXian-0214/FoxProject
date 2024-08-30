@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,9 +26,11 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     [Header("State")]
     [SerializeField] private bool isAttack;
     [SerializeField] private bool onStairs;
-    public bool SwitchMap { get; set; }
     private bool injuredStiff;
     private bool monsterDirection; // right = true，Left = false
+    public bool SwitchMap { get; set; }
+    public event Action GetPoint;
+    public event Action GameOver;
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
@@ -66,6 +69,15 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 break;
             case "door":
                 SwitchMap = true;
+                break;
+            case "deadLine":
+                StartCoroutine(FallOutMap());
+                break;
+            case "Cherry":            
+                Destroy(collider2D.gameObject);
+                GetPoint.Invoke();
+                // play coinCollected Event
+                AudioManager.instance.PlayOneShot(FModEvents.instance.coinCollectedEvent, this.transform.position);
                 break;
         }
     }
@@ -191,7 +203,15 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
         //SceneManager.LoadScene("Dead Scene");
         //AudioManager.instance.PlayOneShot(FModEvents.instance.deadEvent, this.transform.position);
     }
-
+    public void SetJumpValue()
+    {
+        jumpCount=2;
+        jumpCountRest=2;
+    }
+    public void SetDamage(float NewDamage)
+    {
+        damage = NewDamage;
+    }
     private void RestJumpCount()
     {
         jumpCount = jumpCountRest;
@@ -200,6 +220,15 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     {
         attackCount = attackRest;
         isAttack = false;
+    }
+    IEnumerator FallOutMap()
+    {
+        // delay 
+        yield return new WaitForSeconds(0.5f);
+        //change scene to dead scene
+        GameOver.Invoke();
+        SceneManager.LoadScene("Dead Scene");
+        AudioManager.instance.PlayOneShot(FModEvents.instance.deadEvent, this.transform.position);
     }
 
 

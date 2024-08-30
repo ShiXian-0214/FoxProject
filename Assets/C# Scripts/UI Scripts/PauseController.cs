@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,14 @@ public class PauseController : MonoBehaviour
 {
     [SerializeField] GameObject panel;
     private basevalue basevalue;
+    public event Action ClosePauseUI;
     private void Awake()
     {
         basevalue = GetComponent<basevalue>();
     }
-    public void Continue(){
-        panel.SetActive(false);
-        basevalue.isstop = false;
+    public void Continue()
+    {
+        ClosePauseUI.Invoke();
     }
 
     public void Upgrade()
@@ -23,7 +25,7 @@ public class PauseController : MonoBehaviour
 
     public void Setting()
     {
-        
+
     }
     public void OnBackClicked()
     {
@@ -32,7 +34,7 @@ public class PauseController : MonoBehaviour
 
     public void OnPauseClicked()
     {
-            panel.SetActive(true);
+        panel.SetActive(true);
     }
 
     /*public void QuitToTitle()
@@ -40,5 +42,5 @@ public class PauseController : MonoBehaviour
         SceneManager.LoadScene("Menu");
         basevalue.Destroy = false;
     }*/
-    
+
 }

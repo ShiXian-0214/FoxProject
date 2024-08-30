@@ -56,10 +56,10 @@ public class plaerycon : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            basevalue.panel.SetActive(false);
-            basevalue.pane2.SetActive(false);
-            basevalue.isstop = false;
-            basevalue.hp.enabled = true;
+            //basevalue.panel.SetActive(false);
+            //basevalue.pane2.SetActive(false);
+            //basevalue.isstop = false;
+            //basevalue.hp.enabled = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E) && Door_Quit.door_use_to_quit == true && Door_Quit.Takeshield == true)

@@ -28,6 +28,12 @@ public class HpSystem : MonoBehaviour
     {
         CalculateInvincibleTime();
     }
+    public void SetHPValue(float NewHp)
+    {
+        Hp = NewHp;
+        maxHp = NewHp;
+        HpUi();
+    }
     public void Attack(float Damage)
     {
         CalculateDamage(Damage);

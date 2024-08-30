@@ -13,6 +13,8 @@ public class KeyboardSettings : MonoBehaviour
     public event Action<bool> StairsUp;
     public event Action<bool> Attack;
     public event Action SwitchMap;
+    public event Action OpenPauseUI;
+    public event Action ClosePauseUI;
     private void FixedUpdate()
     {
         float Horizontal = Input.GetAxisRaw("Horizontal");
@@ -80,11 +82,11 @@ public class KeyboardSettings : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-
+            OpenPauseUI.Invoke();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            ClosePauseUI.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && Door_Quit.door_use_to_quit == true && Door_Quit.Takeshield == true)
