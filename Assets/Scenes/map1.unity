@@ -32286,10 +32286,7 @@ MonoBehaviour:
   textbox01: {fileID: 1999410015}
   textbox02: {fileID: 909199319}
   game: {fileID: 0}
-  CheckSkill: 0
-  HPSkillNumber: 0
-  DmageSkillNumber: 0
-  jumpSkillNumber: 0
+  skill: 5
 --- !u!1 &1874907800
 GameObject:
   m_ObjectHideFlags: 0
