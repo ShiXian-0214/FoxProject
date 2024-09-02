@@ -15,6 +15,7 @@ public class KeyboardSettings : MonoBehaviour
     public event Action SwitchMap;
     public event Action OpenPauseUI;
     public event Action ClosePauseUI;
+    public event Action GameFinish;
     private void FixedUpdate()
     {
         float Horizontal = Input.GetAxisRaw("Horizontal");
@@ -91,7 +92,7 @@ public class KeyboardSettings : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && Door_Quit.door_use_to_quit == true && Door_Quit.Takeshield == true)
         {
-
+            GameFinish.Invoke();
         }
     }
 }

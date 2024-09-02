@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     public event Action GetPoint;
     public event Action GameOver;
     public event Action Boss_level;
+
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
@@ -82,6 +83,14 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 break;
             case "BossSwitch":
                 Boss_level.Invoke();
+                break;
+            case "shield":
+                AudioManager.instance.PlayOneShot(FModEvents.instance.shieldCollectedEvent, this.transform.position);
+                Destroy(collider2D.gameObject);
+                Door_Quit.Takeshield = true;
+                break;
+            case "door_quit":
+                Door_Quit.door_use_to_quit = true;
                 break;
         }
     }

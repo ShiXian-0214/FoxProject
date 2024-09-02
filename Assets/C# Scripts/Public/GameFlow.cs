@@ -20,7 +20,7 @@ public class GameFloW : MonoBehaviour
     [SerializeField] private CinemachineConfiner cinemachineConfiner;
     [SerializeField] private GameObject DetectWalls;
     [SerializeField] private RetainOrRelease[] retainOrReleases;
-    
+
     private static bool checkStatic = false;
     private void Awake()
     {
@@ -35,10 +35,12 @@ public class GameFloW : MonoBehaviour
         keyboardSettings.SwitchMap += SwitchMap;
         keyboardSettings.OpenPauseUI += uIControl.OpenPauseUI;
         keyboardSettings.ClosePauseUI += uIControl.ClosePauseUI;
+        keyboardSettings.GameFinish+= GameFinish;
 
         playerControl.GameOver += GameOver;
         playerControl.GetPoint += uIControl.GetCherry;
         playerControl.Boss_level += Boss_level;
+
 
         pauseController.ClosePauseUI += uIControl.ClosePauseUI;
 
@@ -47,7 +49,7 @@ public class GameFloW : MonoBehaviour
         uIControl.buttonController.SetHPValue += hpSystem.SetHPValue;
 
         cinemachineConfiner.m_BoundingShape2D = CameraBoundary;
-        
+
         GameStart();
 
     }
@@ -56,7 +58,7 @@ public class GameFloW : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         if (!checkStatic)
         {
-            
+
             checkStatic = true;
         }
         foreach (RetainOrRelease toke in retainOrReleases)
@@ -79,7 +81,7 @@ public class GameFloW : MonoBehaviour
         GameObject[] rootObjects = scene2.GetRootGameObjects();
         foreach (GameObject obj in rootObjects)
         {
-            if(obj.name == "back")
+            if (obj.name == "back")
             {
                 CameraBoundary = obj.GetComponent<PolygonCollider2D>();
                 cinemachineConfiner.m_BoundingShape2D = CameraBoundary;
@@ -130,5 +132,19 @@ public class GameFloW : MonoBehaviour
         {
             toke.GameOver();
         }
+    }
+    private void GameFinish()
+    {
+        Destroy(this.gameObject);
+        foreach (RetainOrRelease toke in retainOrReleases)
+        {
+            toke.GameOver();
+        }
+        Time.timeScale = 1;
+        MenuButton.isFoward = 0;
+        MenuButton.sceneIndex();
+        Door_Quit.door_use_to_quit = false;
+        SceneManager.LoadScene("LoadingScene");
+
     }
 }
