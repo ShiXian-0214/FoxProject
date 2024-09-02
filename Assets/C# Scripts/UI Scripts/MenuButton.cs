@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class MenuButton : MonoBehaviour
 
     public static int isFoward;
     static int num;
+    public event Action DeleteObject;
 
     [SerializeField] Animator animator;
 
@@ -39,6 +41,7 @@ public class MenuButton : MonoBehaviour
 
     public void QuitToTitle()
     {
+        DeleteObject.Invoke();
         Time.timeScale = 1;
         SceneManager.LoadScene("LoadingScene");
 

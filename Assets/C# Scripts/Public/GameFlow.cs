@@ -20,6 +20,7 @@ public class GameFloW : MonoBehaviour
     [SerializeField] private CinemachineConfiner cinemachineConfiner;
     [SerializeField] private GameObject DetectWalls;
     [SerializeField] private RetainOrRelease[] retainOrReleases;
+    [SerializeField] private MenuButton menuButton;
 
     private static bool checkStatic = false;
     private void Awake()
@@ -49,6 +50,7 @@ public class GameFloW : MonoBehaviour
         uIControl.buttonController.SetHPValue += hpSystem.SetHPValue;
 
         cinemachineConfiner.m_BoundingShape2D = CameraBoundary;
+        menuButton.DeleteObject+= DeleteObject;
 
         GameStart();
 
@@ -127,24 +129,23 @@ public class GameFloW : MonoBehaviour
     }
     private void GameOver()
     {
-        Destroy(this.gameObject);
-        foreach (RetainOrRelease toke in retainOrReleases)
-        {
-            toke.GameOver();
-        }
+        DeleteObject();
     }
     private void GameFinish()
+    {
+        DeleteObject();
+        Time.timeScale = 1;
+        MenuButton.isFoward = 0;
+        MenuButton.sceneIndex();
+        Door_Quit.door_use_to_quit = false;
+        SceneManager.LoadScene("LoadingScene");
+    }
+    private void DeleteObject()
     {
         Destroy(this.gameObject);
         foreach (RetainOrRelease toke in retainOrReleases)
         {
             toke.GameOver();
         }
-        Time.timeScale = 1;
-        MenuButton.isFoward = 0;
-        MenuButton.sceneIndex();
-        Door_Quit.door_use_to_quit = false;
-        SceneManager.LoadScene("LoadingScene");
-
     }
 }
