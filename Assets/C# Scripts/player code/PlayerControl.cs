@@ -31,6 +31,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     public bool SwitchMap { get; set; }
     public event Action GetPoint;
     public event Action GameOver;
+    public event Action Boss_level;
     private void Awake()
     {
         anima.RestJumpCount += RestJumpCount;
@@ -78,6 +79,9 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
                 GetPoint.Invoke();
                 // play coinCollected Event
                 AudioManager.instance.PlayOneShot(FModEvents.instance.coinCollectedEvent, this.transform.position);
+                break;
+            case "BossSwitch":
+                Boss_level.Invoke();
                 break;
         }
     }

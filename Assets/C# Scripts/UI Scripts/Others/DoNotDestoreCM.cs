@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class DoNotDestoreCM : MonoBehaviour
 {
     public CinemachineConfiner CM;
-    public PolygonCollider2D pd;
+    //public PolygonCollider2D pd;
     public PolygonCollider2D AirWall;
     public PolygonCollider2D AirWall2;
     //public CinemachineVirtualCamera CameraFollow;
@@ -45,11 +45,11 @@ public class DoNotDestoreCM : MonoBehaviour
         }     
         if (basevalue.destroy&& !Victory.isBossDead)
         {
-            if (pd == null)
-            {
-                pd = GameObject.Find("back")?.GetComponent<PolygonCollider2D>();
-                CM.m_BoundingShape2D = pd;
-            }
+            //if (pd == null)
+            //{
+                //pd = GameObject.Find("back")?.GetComponent<PolygonCollider2D>();
+               //CM.m_BoundingShape2D = pd;
+            //}
             DontDestroyOnLoad(this.gameObject);
             SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
         }
@@ -63,8 +63,8 @@ public class DoNotDestoreCM : MonoBehaviour
     {
         if (basevalue.destroy)
         {
-            pd = GameObject.Find("back")?.GetComponent<PolygonCollider2D>();           
-            CM.m_BoundingShape2D = pd;
+            //pd = GameObject.Find("back")?.GetComponent<PolygonCollider2D>();           
+            //CM.m_BoundingShape2D = pd;
         }
         else 
         {

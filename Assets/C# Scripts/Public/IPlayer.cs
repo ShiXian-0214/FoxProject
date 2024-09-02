@@ -6,6 +6,7 @@ public interface IPlayer
     public bool SwitchMap { get; set; }
     public event Action GetPoint;
     public event Action GameOver;
+    public event Action Boss_level;
     public void Move(float movePressed);
     public void Jump(bool jumpPressed);
     public void StairsUp(bool StairsUpPressed);

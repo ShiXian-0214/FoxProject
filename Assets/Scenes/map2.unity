@@ -3588,7 +3588,7 @@ GameObject:
   - component: {fileID: 1069198042}
   m_Layer: 0
   m_Name: back
-  m_TagString: Untagged
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30382,7 +30382,7 @@ GameObject:
   - component: {fileID: 2006708328}
   m_Layer: 0
   m_Name: rebirth
-  m_TagString: Untagged
+  m_TagString: Rebirth
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30396,7 +30396,7 @@ Transform:
   m_GameObject: {fileID: 2006708327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.54, y: 0.44, z: -0.296682}
+  m_LocalPosition: {x: 150.8, y: 13.6, z: -0.296682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
