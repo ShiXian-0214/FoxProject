@@ -213,8 +213,9 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     }
     public void Dead()
     {
-        //SceneManager.LoadScene("Dead Scene");
-        //AudioManager.instance.PlayOneShot(FModEvents.instance.deadEvent, this.transform.position);
+        GameOver.Invoke();
+        SceneManager.LoadScene("Dead Scene");
+        AudioManager.instance.PlayOneShot(FModEvents.instance.deadEvent, this.transform.position);
     }
     public void SetJumpValue()
     {

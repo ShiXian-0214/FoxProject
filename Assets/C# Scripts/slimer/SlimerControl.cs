@@ -36,18 +36,24 @@ public class SlimerControl : MonoBehaviour, IHpSystem
     [SerializeField] private PlayerDirection_X playerDirection_X;
     [SerializeField] private PlayerDirection_Y playerDirection_Y;
     [SerializeField] private bool StartSwitch = false;
+    private static bool StaticState = false;
     private void Awake()
     {
         slimerTransform = this.gameObject.GetComponent<Transform>().position;
-        
+
     }
     private void Start()
     {
-        animaCallbackSet.SetAnimationEvent(0,0.58f,Shooting);
-        animaCallbackSet.SetAnimationEvent(0,0.5f,OpenAttackColliderUnder);
-        animaCallbackSet.SetAnimationEvent(0,0.65f,OffAttackColliderUnder);
-        animaCallbackSet.SetAnimationEvent(1,0.66f,slimerAnimaControl.SlimerDead);
-        
+        if (!StaticState)
+        {
+            animaCallbackSet.SetAnimationEvent(0, 0.58f, Shooting);
+            animaCallbackSet.SetAnimationEvent(0, 0.5f, OpenAttackColliderUnder);
+            animaCallbackSet.SetAnimationEvent(0, 0.65f, OffAttackColliderUnder);
+            animaCallbackSet.SetAnimationEvent(1, 0.66f, slimerAnimaControl.SlimerDead);
+            StaticState=true;
+        }
+
+
     }
     public void init()
     {
@@ -57,7 +63,10 @@ public class SlimerControl : MonoBehaviour, IHpSystem
     {
         if (StartSwitch)
         {
-            CheckPlayerDirection();
+            if (Player != null)
+            {
+                CheckPlayerDirection();
+            }
             switch (slimerState)
             {
                 case SlimerState.Idle:
@@ -92,13 +101,13 @@ public class SlimerControl : MonoBehaviour, IHpSystem
             Instantiate(bullet[1], new Vector3(225, 0, 0), Quaternion.identity);
             AudioManager.instance.PlayOneShot(FModEvents.instance.bulletsEvent, this.transform.position);
         }
-        else if (playerDirection_Y==PlayerDirection_Y.Down&&playerDirection_X==PlayerDirection_X.Left)
+        else if (playerDirection_Y == PlayerDirection_Y.Down && playerDirection_X == PlayerDirection_X.Left)
         {
             Instantiate(bullet[2], new Vector3(220.09f, -6.11f, 0), Quaternion.identity);
             Instantiate(bullet[3], new Vector3(220.5f, -2.5f, 0), Quaternion.identity);
             AudioManager.instance.PlayOneShot(FModEvents.instance.bulletsEvent, this.transform.position);
         }
-        else if (playerDirection_Y==PlayerDirection_Y.Down&&playerDirection_X==PlayerDirection_X.Right)
+        else if (playerDirection_Y == PlayerDirection_Y.Down && playerDirection_X == PlayerDirection_X.Right)
         {
             Instantiate(bullet[4], new Vector3(227.2f, -5.93f, 0), Quaternion.identity);
             Instantiate(bullet[5], new Vector3(226.5f, -2.5f, 0), Quaternion.identity);
@@ -106,7 +115,7 @@ public class SlimerControl : MonoBehaviour, IHpSystem
         }
 
     }
-    void OpenAttackColliderUnder() 
+    void OpenAttackColliderUnder()
     {
         AttackColliderUnder.enabled = true;
     }
@@ -114,7 +123,7 @@ public class SlimerControl : MonoBehaviour, IHpSystem
     {
         AttackColliderUnder.enabled = false;
     }
-    
+
 
     public void Hurt(bool State) { }
     public void Dead()

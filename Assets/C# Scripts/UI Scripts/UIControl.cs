@@ -11,6 +11,7 @@ public class UIControl : MonoBehaviour
 
     [SerializeField] private int cherryValue;
     [SerializeField] private Text cherryCount;
+    private bool gamePauseSwitch;
     public ButtonController buttonController;
     private void Awake()
     {
@@ -29,14 +30,22 @@ public class UIControl : MonoBehaviour
 
     public void OpenPauseUI()
     {
+        Time.timeScale = 0;
+        gamePauseSwitch = true;
         pauseUI.SetActive(true);
         playerHPUI.SetActive(false);
     }
     public void ClosePauseUI()
     {
+        Time.timeScale = 1;
+        gamePauseSwitch = false;
         playerHPUI.SetActive(true);
         pauseUI.SetActive(false);
         attributeUI.SetActive(false);
+    }
+    public bool GamePauseSwitch()
+    {
+        return gamePauseSwitch;
     }
     public void GetCherry()
     {

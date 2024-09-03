@@ -419,23 +419,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  speed: 1
   rigidbody2D: {fileID: 8793153915152223282}
   leftPoint: {fileID: 8793153914240422894}
   rightPoint: {fileID: 8793153914052494602}
   leftX: 0
   rightX: 0
   face: 1
-  isAttack: 0
-  animationClip: {fileID: 7400000, guid: da8bb30b973a03642bfbdef60eb228e9, type: 2}
-  speed: 1
   circleCollider2D: {fileID: 8793153915152223281}
   isJump: 0
-  jumpForce: 1
+  jumpForce: 2
   Ground:
     serializedVersion: 2
     m_Bits: 8
-  animaControl: {fileID: 4200988639369969446}
   animaCallbackSet: {fileID: 7794897226005988469}
+  animaControl: {fileID: 4200988639369969446}
 --- !u!114 &3903116295306350054
 MonoBehaviour:
   m_ObjectHideFlags: 0

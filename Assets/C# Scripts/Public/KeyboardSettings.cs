@@ -16,6 +16,8 @@ public class KeyboardSettings : MonoBehaviour
     public event Action OpenPauseUI;
     public event Action ClosePauseUI;
     public event Action GameFinish;
+    public event Func<bool> GamePause;
+
     private void FixedUpdate()
     {
         float Horizontal = Input.GetAxisRaw("Horizontal");
@@ -40,7 +42,7 @@ public class KeyboardSettings : MonoBehaviour
         bool crouch = Input.GetButton("Crouch");
         bool attack = Input.GetButtonDown("Attack");
 
-        if (jump)
+        if (jump&&!GamePause.Invoke())
         {
             if (!crouch)
             {
@@ -48,7 +50,7 @@ public class KeyboardSettings : MonoBehaviour
             }
         }
 
-        if (crouch)
+        if (crouch&&!GamePause.Invoke())
         {
             if (!jump)
             {

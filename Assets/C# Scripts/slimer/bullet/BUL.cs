@@ -9,8 +9,11 @@ public class BUL : MonoBehaviour
     public float Timer;
     void Update()
     {
-        move();
-        time();
+        if (PlayTransform != null)
+        {
+            move();
+            time();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

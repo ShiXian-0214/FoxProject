@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BDL : MonoBehaviour
@@ -9,14 +10,20 @@ public class BDL : MonoBehaviour
     public float Timer;
     void Update()
     {
-        move();
-        time();
+        if (PlayTransform != null)
+        {
+            move();
+            time();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") 
+        if (collision.tag == "Player")
         {
+
             PlayTransform = collision.transform;
+
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,7 +36,7 @@ public class BDL : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "BossSwitch") 
+        if (collision.gameObject.tag == "BossSwitch")
         {
             Destroy(this.gameObject);
         }
@@ -40,11 +47,11 @@ public class BDL : MonoBehaviour
         {
             rb.velocity += new Vector2(-0.1f, -0.1f);
         }
-        else 
+        else
         {
             rb.velocity += new Vector2(-0.1f, 0);
         }
-        
+
     }
     void time()
     {

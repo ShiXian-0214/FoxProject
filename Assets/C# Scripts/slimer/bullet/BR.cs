@@ -11,8 +11,11 @@ public class BR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move();
-        time();
+        if (tf != null)
+        {
+            move();
+            time();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

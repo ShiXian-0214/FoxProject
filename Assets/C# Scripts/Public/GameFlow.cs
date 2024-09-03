@@ -22,7 +22,6 @@ public class GameFloW : MonoBehaviour
     [SerializeField] private RetainOrRelease[] retainOrReleases;
     [SerializeField] private MenuButton menuButton;
 
-    private static bool checkStatic = false;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -37,6 +36,7 @@ public class GameFloW : MonoBehaviour
         keyboardSettings.OpenPauseUI += uIControl.OpenPauseUI;
         keyboardSettings.ClosePauseUI += uIControl.ClosePauseUI;
         keyboardSettings.GameFinish+= GameFinish;
+        keyboardSettings.GamePause+= uIControl.GamePauseSwitch;
 
         playerControl.GameOver += GameOver;
         playerControl.GetPoint += uIControl.GetCherry;
@@ -58,16 +58,12 @@ public class GameFloW : MonoBehaviour
     private void GameStart()
     {
         DontDestroyOnLoad(this.gameObject);
-        if (!checkStatic)
-        {
-
-            checkStatic = true;
-        }
         foreach (RetainOrRelease toke in retainOrReleases)
         {
             toke.GameStart();
         }
     }
+    
     private void SwitchMap()
     {
         if (playerControl.SwitchMap)
