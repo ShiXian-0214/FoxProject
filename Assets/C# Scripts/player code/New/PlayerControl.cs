@@ -75,7 +75,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
             case "deadLine":
                 StartCoroutine(FallOutMap());
                 break;
-            case "Cherry":            
+            case "Cherry":
                 Destroy(collider2D.gameObject);
                 GetPoint.Invoke();
                 // play coinCollected Event
@@ -140,6 +140,7 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
             {
                 anima.Jump(jumpPressed);
                 rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
+                AudioManager.instance.PlayOneShot(FModEvents.instance.jumpEvent, this.transform.position);
                 jumpCount--;
             }
         }
@@ -219,8 +220,8 @@ public class PlayerControl : MonoBehaviour, IPlayer, IHpSystem
     }
     public void SetJumpValue()
     {
-        jumpCount=2;
-        jumpCountRest=2;
+        jumpCount = 2;
+        jumpCountRest = 2;
     }
     public void SetDamage(float NewDamage)
     {

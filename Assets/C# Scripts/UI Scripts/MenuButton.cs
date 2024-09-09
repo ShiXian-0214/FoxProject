@@ -41,7 +41,6 @@ public class MenuButton : MonoBehaviour
 
     public void QuitToTitle()
     {
-        DeleteObject.Invoke();
         Time.timeScale = 1;
         SceneManager.LoadScene("LoadingScene");
 
