@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour
 {
     private basevalue basevalue;
-
     public static int isFoward;
     static int num;
     public event Action DeleteObject;
@@ -41,7 +40,9 @@ public class MenuButton : MonoBehaviour
 
     public void QuitToTitle()
     {
+        
         Time.timeScale = 1;
+        DeleteObject.Invoke();
         SceneManager.LoadScene("LoadingScene");
 
         isFoward = 0;
